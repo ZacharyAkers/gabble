@@ -1,28 +1,23 @@
+
 'use strict';
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-
     return queryInterface.addColumn(
-      'Messages',
-      'UsersId',
+      'messages',
+      'userId',
       {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "Users",
-          key: "id"
+          model: 'users',
+          key: 'id'
         }
       }
-    )
-
+    );
   },
 
   down: function (queryInterface, Sequelize) {
-
-    return queryInterface.removeColumn(
-      'Messages',
-      'UsersId'
-    )
+    return queryInterface.removeColumn('messages', 'userId');
   }
 };

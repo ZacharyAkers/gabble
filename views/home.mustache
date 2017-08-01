@@ -1,0 +1,32 @@
+<nav class="nav-main">
+  <div class="nav-titles">
+    <h4 class="nav-links"><a href="/home">Gabble</a></h4>
+    <h4 class="nav-links"><a href="/createGab">Create A New Gab</a></h4>
+    <h4 class="nav-links">Logged in as {{username}}</h4>
+    <form action="/logout" method="post">
+      <button type="submit" class="nav-links">Logout</button>
+    </form>
+  </div>
+</nav>
+<h2>Recent Gabs</h2>
+{{#messages}}
+<div class="gab">
+
+  <p class="gab-paragraph">{{messageUser}}: {{body}}</p>
+
+  <p class="gab-paragraph">{{createdAt}}</p>
+  <form class="" action="/likeUsers/{{id}}" method="post">
+    <p><button type="submit" name="button">likes: </button>{{likes}}</p>
+  </form>
+
+
+</div>
+<form action="/{{id}}/like" method="post">
+  <button type="submit">Like</button>
+</form>
+{{#delete}}
+<form action="/home/{{id}}/delete" method="post">
+  <button type="submit">Delete Gab</button>
+</form>
+{{/delete}}
+{{/messages}}
